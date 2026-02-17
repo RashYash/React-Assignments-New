@@ -1,0 +1,30 @@
+.assignment2 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.assignment2 input,
+.assignment2 select {
+  margin: 5px;
+  padding: 6px 10px;
+}
+
+.assignment2 button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.assignment2 button:hover {
+  background: #45a049;
+}
+
+.assignment2 p {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}

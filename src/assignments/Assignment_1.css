@@ -1,0 +1,17 @@
+.assignment1-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.assignment1-button-group button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.assignment1-content {
+    margin-top: 30px;
+    font-size: 20px;
+    color: darkblue;
+}
