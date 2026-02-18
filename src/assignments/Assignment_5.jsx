@@ -2,139 +2,98 @@ import { useState } from "react";
 import "./Assignment_5.css";
 
 export default function Assignment_5() {
+  const [numbers, setNumbers] = useState([]);
+  const [value, setValue] = useState("");
 
-    const [numbers, setNumbers] = useState([]);
-    const [value, setValue] = useState("");
+  function addNumber() {
+    if (value === "") return;
 
-    function addNumber() {
+    setNumbers([...numbers, Number(value)]);
+    setValue("");
+  }
 
-        if (value === "") return;
+  function deleteNumber(index) {
+    const newArray = numbers.filter((_num, i) => i !== index);
+    setNumbers(newArray);
+  }
 
-        setNumbers([...numbers, Number(value)]);
-        setValue("");
+  function sortAscending() {
+    const sorted = [...numbers].sort((a, b) => a - b);
+    setNumbers(sorted);
+  }
 
-    }
+  function sortDescending() {
+    const sorted = [...numbers].sort((a, b) => b - a);
+    setNumbers(sorted);
+  }
 
-    function deleteNumber(index) {
+  function moveUp(index) {
+    if (index === 0) return;
 
-        const newArray = numbers.filter((_num, i) => i !== index);
-        setNumbers(newArray);
+    const newArray = [...numbers];
 
-    }
+    const temp = newArray[index];
+    newArray[index] = newArray[index - 1];
+    newArray[index - 1] = temp;
 
-    function sortAscending() {
+    setNumbers(newArray);
+  }
 
-        const sorted = [...numbers].sort((a, b) => a - b);
-        setNumbers(sorted);
+  function moveDown(index) {
+    if (index === numbers.length - 1) return;
 
-    }
+    const newArray = [...numbers];
 
-    function sortDescending() {
+    const temp = newArray[index];
+    newArray[index] = newArray[index + 1];
+    newArray[index + 1] = temp;
 
-        const sorted = [...numbers].sort((a, b) => b - a);
-        setNumbers(sorted);
+    setNumbers(newArray);
+  }
 
-    }
+  const total = numbers.reduce((sum, num) => sum + num, 0);
+  const average = numbers.length > 0 ? (total / numbers.length).toFixed(2) : 0;
 
-    function moveUp(index) {
+  return (
+    <div className="assignment5">
+      <h2>Assignment 5</h2>
 
-        if (index === 0) return;
+      <h3>Total: {total}</h3>
 
-        const newArray = [...numbers];
+      <h3>Average: {average}</h3>
 
-        const temp = newArray[index];
-        newArray[index] = newArray[index - 1];
-        newArray[index - 1] = temp;
+      <button onClick={sortAscending}>Sort Ascending</button>
 
-        setNumbers(newArray);
+      <button onClick={sortDescending}>Sort Descending</button>
 
-    }
+      <ol>
+        {numbers.map((num, index) => (
+          <li key={index}>
+            {num}
 
-    function moveDown(index) {
-
-        if (index === numbers.length - 1) return;
-
-        const newArray = [...numbers];
-
-        const temp = newArray[index];
-        newArray[index] = newArray[index + 1];
-        newArray[index + 1] = temp;
-
-        setNumbers(newArray);
-
-    }
-
-    const total = numbers.reduce((sum, num) => sum + num, 0);
-    const average = numbers.length > 0 ? (total / numbers.length).toFixed(2) : 0;
-
-    return (
-
-        <div className="assignment5">
-
-            <h2>Assignment 5</h2>
-
-            <h3>Total: {total}</h3>
-
-            <h3>Average: {average}</h3>
-
-
-            <button onClick={sortAscending}>
-                Sort Ascending
+            <button onClick={() => moveUp(index)} disabled={index === 0}>
+              Move Up
             </button>
 
-            <button onClick={sortDescending}>
-                Sort Descending
+            <button
+              onClick={() => moveDown(index)}
+              disabled={index === numbers.length - 1}
+            >
+              Move Down
             </button>
 
+            <button onClick={() => deleteNumber(index)}>Delete</button>
+          </li>
+        ))}
+      </ol>
 
-            <ol>
+      <input
+        type="number"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
 
-                {numbers.map((num, index) => (
-
-                    <li key={index}>
-
-                        {num}
-
-                        <button
-                            onClick={() => moveUp(index)}
-                            disabled={index === 0}
-                        >
-                            Move Up
-                        </button>
-
-
-                        <button
-                            onClick={() => moveDown(index)}
-                            disabled={index === numbers.length - 1}
-                        >
-                            Move Down
-                        </button>
-
-
-                        <button
-                            onClick={() => deleteNumber(index)}
-                        >
-                            Delete
-                        </button>
-
-                    </li>
-
-                ))}
-
-            </ol>
-
-            <input
-                type="number"
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-            />
-
-            <button onClick={addNumber}>
-                Add
-            </button>
-
-        </div>
-
-    );
-
+      <button onClick={addNumber}>Add</button>
+    </div>
+  );
 }
