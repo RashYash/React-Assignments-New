@@ -1,0 +1,21 @@
+.assignment5 {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.assignment5 input {
+  padding: 6px;
+  margin-right: 10px;
+}
+
+.assignment5 button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.assignment5 ol {
+  width: 200px;
+  margin: 20px auto;
+  text-align: left;
+}
