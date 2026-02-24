@@ -1,0 +1,58 @@
+.assignment9-container {
+  width: 450px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: Arial;
+}
+
+.assignment9-input {
+  padding: 8px;
+  width: 220px;
+  margin-right: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.assignment9-button {
+  padding: 8px 15px;
+  border: none;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.assignment9-button:hover {
+  background-color: darkblue;
+}
+
+.assignment9-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.assignment9-item {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.assignment9-pagination {
+  margin-top: 20px;
+}
+
+.assignment9-page-btn {
+  padding: 6px 12px;
+  margin: 4px;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.assignment9-page-btn:hover {
+  background-color: darkgreen;
+}
