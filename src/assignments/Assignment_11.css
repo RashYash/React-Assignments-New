@@ -1,0 +1,35 @@
+.assignment11-user-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid #4caf50;
+  border-radius: 10px;
+  background-color: #f0fff4;
+  text-align: center;
+}
+
+.assignment11-user-container h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.assignment11-user-container p {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #333;
+}
+
+.assignment11-profile-pic {
+  margin-top: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #4caf50;
+  object-fit: cover;
+}
+
+.assignment11-token {
+  margin-top: 10px;
+  font-size: 12px;
+  color: gray;
+  word-break: break-all;
+}

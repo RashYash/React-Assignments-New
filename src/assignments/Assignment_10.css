@@ -1,0 +1,45 @@
+.assignment10-container {
+  width: 350px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px #ccc;
+  background-color: #f9f9f9;
+}
+
+.assignment10-container h2 {
+  margin-bottom: 20px;
+}
+
+.assignment10-input {
+  width: 80%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.assignment10-button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.assignment10-button:hover {
+  background-color: #0056b3;
+}
+
+.assignment10-error {
+  color: red;
+  margin-top: 12px;
+  font-size: 14px;
+}
