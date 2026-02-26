@@ -41,11 +41,14 @@
 
 .assignment9-pagination {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
 .assignment9-page-btn {
   padding: 6px 12px;
-  margin: 4px;
   border: none;
   background-color: green;
   color: white;

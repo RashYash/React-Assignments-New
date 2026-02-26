@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Assignment_10.css";
 import "./Assignment_11.css";
 
-export default function Assignment_10() {
+export default function Assignment_11() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -33,10 +33,12 @@ export default function Assignment_10() {
       })
 
       .catch(function (error) {
-        console.log("error reponse:");
+        console.log("error response:");
         console.log(error);
 
-        setError("Login Failed. Check email or password");
+        setError(
+          error.response?.data?.message || error.message || "Login Failed",
+        );
       });
   }
   function getUserDetails(token) {
