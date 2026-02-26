@@ -52,9 +52,9 @@ export default function Assignment_12() {
   }
 
   function getUserDetails(token) {
-    //if (!token) {
-    //token = localStorage.getItem("token") || sessionStorage.getItem("token");
-    //}
+    if (!token) {
+    token = localStorage.getItem("token") || sessionStorage.getItem("token");
+    }
 
     axios
       .get(
