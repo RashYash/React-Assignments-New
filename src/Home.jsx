@@ -21,6 +21,7 @@ export default function Home() {
             <Link to="/ASG-10"><button>Assignment 10</button></Link>
             <Link to="/ASG-11"><button>Assignment 11</button></Link>
             <Link to="/ASG-12"><button>Assignment 12</button></Link>
+            <Link to="/ASG-13"><button>Assignment 13</button></Link>
             
         </div>
 
