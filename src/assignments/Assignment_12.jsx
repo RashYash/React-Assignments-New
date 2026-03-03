@@ -132,7 +132,7 @@ export default function Assignment_12() {
         <div className="assignment11-user-container">
           <h3>You have logged!</h3>
           <p>Name: {userDetails.name}</p>
-          <p>Bio: {userDetails.bio}</p>
+          <p>Description: {userDetails.description}</p>
           <img
             //src={userDetails.profile_pic}
             src={userDetails.avatar}

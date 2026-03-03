@@ -9,7 +9,7 @@ const getToken = () => {
   return localStorage.getItem("token") || sessionStorage.getItem("token");
 };
 
-export default function Assignment_13() {
+export default function Assignment_14() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -101,6 +101,9 @@ function LoginScreen({ setIsLoggedIn }) {
 function ProfileScreen({ setIsLoggedIn }) {
   const [userDetails, setUserDetails] = useState(null);
 
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+
   useEffect(() => {
     axios
       .get("https://auth.dnjs.lk/api/user", {
@@ -110,8 +113,32 @@ function ProfileScreen({ setIsLoggedIn }) {
       })
       .then(function (response) {
         setUserDetails(response.data);
+        setName(response.data.name);
+        setDescription(response.data.description);
       });
   }, []);
+
+  function updateProfile() {
+    axios
+      .put(
+        "https://auth.dnjs.lk/api/user",
+        {
+          name: name,
+          description: description,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + getToken(),
+          },
+        },
+      )
+      .then(function () {
+        alert("Profile Updated Successfully.");
+      })
+      .catch(function () {
+        alert("Update Failed.");
+      });
+  }
 
   function logout() {
     axios
@@ -134,7 +161,7 @@ function ProfileScreen({ setIsLoggedIn }) {
   return (
     userDetails && (
       <div className="assignment13-profile-box">
-        <h3 className="assignment13-title">You have logged!</h3>
+        <h3 className="assignment13-title">Profile Screen</h3>
         <p className="assignment13-profile-text">Name: {userDetails.name}</p>
         <p className="assignment13-profile-text">
           Description: {userDetails.description}
@@ -145,6 +172,29 @@ function ProfileScreen({ setIsLoggedIn }) {
           className="assignment13-avatar"
           alt="profile"
         />
+
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter Name"
+          className="assignment10-input"
+        />
+
+        <input
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Enter Description"
+          className="assignment10-input"
+        />
+
+        <button onClick={updateProfile} className="assignment10-button">
+          Save Profile
+        </button>
+
+        <br />
+        <br />
 
         <button onClick={logout} className="assignment13-logout-button">
           Logout
