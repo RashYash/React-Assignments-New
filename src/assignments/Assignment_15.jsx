@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../api/api";
 import "./Assignment_10.css";
 import "./Assignment_11.css";
 import "./Assignment_12.css";
@@ -9,13 +9,12 @@ const getToken = () => {
   return localStorage.getItem("token") || sessionStorage.getItem("token");
 };
 
-export default function Assignment_13() {
+export default function Assignment_15() {
   const [isLoggedIn, setIsLoggedIn] = useState(getToken() !== null);
 
   return (
     <div className="assignment10-container">
       {!isLoggedIn && <LoginScreen setIsLoggedIn={setIsLoggedIn} />}
-
       {isLoggedIn && <ProfileScreen setIsLoggedIn={setIsLoggedIn} />}
     </div>
   );
@@ -31,12 +30,9 @@ function LoginScreen({ setIsLoggedIn }) {
   function login() {
     setError("");
 
-    axios
-      .post("https://auth.dnjs.lk/api/login", {
-        email,
-        password,
-      })
-      .then(function (response) {
+    api
+      .post("/login", { email, password })
+      .then((response) => {
         const token = response.data.access_token;
 
         if (keepLoggedIn) {
@@ -47,7 +43,8 @@ function LoginScreen({ setIsLoggedIn }) {
 
         setIsLoggedIn(true);
       })
-      .catch(function (error) {
+
+      .catch((error) => {
         setError(
           error.response?.data?.message || error.message || "Login Failed",
         );
@@ -56,7 +53,7 @@ function LoginScreen({ setIsLoggedIn }) {
 
   return (
     <div className="assignment13-login-box">
-      <h2 className="assignment13-title">Assignment 13 Login</h2>
+      <h2 className="assignment13-title">Assignment 15 Login</h2>
 
       <input
         type="text"
@@ -91,26 +88,87 @@ function LoginScreen({ setIsLoggedIn }) {
     </div>
   );
 }
+
 //profile
 function ProfileScreen({ setIsLoggedIn }) {
   const [userDetails, setUserDetails] = useState(null);
 
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [message, setMessage] = useState("");
+
   useEffect(() => {
-    axios
-      .get("https://auth.dnjs.lk/api/user", {
+    api
+      .get("/user", {
         headers: {
           Authorization: "Bearer " + getToken(),
         },
       })
-      .then(function (response) {
+      .then((response) => {
         setUserDetails(response.data);
+        setName(response.data.name);
+        setDescription(response.data.description);
       });
   }, []);
 
+  function updateProfile() {
+    api
+      .put(
+        "/user",
+        {
+          name: name,
+          description: description,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + getToken(),
+          },
+        },
+      )
+      .then(function () {
+        alert("Profile Updated Successfully.");
+      })
+      .catch(function () {
+        alert("Update Failed.");
+      });
+  }
+
+  function handleFileChange(e) {
+    setSelectedImage(e.target.files[0]);
+  }
+
+  function uploadAvatar() {
+    if (!selectedImage) {
+      setMessage("Please select an image first");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("avatar", selectedImage);
+
+    api
+      .post("/avatar", formData, {
+        headers: {
+          Authorization: "Bearer " + getToken(),
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then(() => {
+        setMessage("Avatar uploaded successfully");
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error.response);
+        setMessage("Upload Failed");
+      });
+  }
+
   function logout() {
-    axios
+    api
       .post(
-        "https://auth.dnjs.lk/api/logout",
+        "/logout",
         {},
         {
           headers: {
@@ -128,7 +186,8 @@ function ProfileScreen({ setIsLoggedIn }) {
   return (
     userDetails && (
       <div className="assignment13-profile-box">
-        <h3 className="assignment13-title">You have logged!</h3>
+        <h3 className="assignment13-title">Profile Screen</h3>
+
         <p className="assignment13-profile-text">Name: {userDetails.name}</p>
         <p className="assignment13-profile-text">
           Description: {userDetails.description}
@@ -139,6 +198,37 @@ function ProfileScreen({ setIsLoggedIn }) {
           className="assignment13-avatar"
           alt="profile"
         />
+
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter Name"
+          className="assignment10-input"
+        />
+
+        <input
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder="Enter Description"
+          className="assignment10-input"
+        />
+
+        <button onClick={updateProfile} className="assignment10-button">
+          Save Profile
+        </button>
+
+        <br />
+        <br />
+
+        <input type="file" accept="image/*" onChange={handleFileChange} />
+        <button onClick={uploadAvatar} className="assignment10-button">
+          Upload Avatar
+        </button>
+        <p>{message}</p>
+
+        <br />
 
         <button onClick={logout} className="assignment13-logout-button">
           Logout

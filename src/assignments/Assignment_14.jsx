@@ -10,13 +10,7 @@ const getToken = () => {
 };
 
 export default function Assignment_14() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    if (getToken() !== null) {
-      setIsLoggedIn(true);
-    }
-  }, []);
+  const [isLoggedIn, setIsLoggedIn] = useState(getToken() !== null);
 
   return (
     <div className="assignment10-container">
