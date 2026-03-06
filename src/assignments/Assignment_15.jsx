@@ -130,12 +130,8 @@ function ProfileScreen({ setIsLoggedIn }) {
       .then(function () {
         alert("Profile Updated Successfully.");
       })
-      .catch((error) => {
-        console.log(error.response);
-
-        setMessage(
-          error.response?.data?.message || error.message || "Upload Failed",
-        );
+      .catch(function () {
+        alert("Update Failed.");
       });
   }
 
@@ -159,13 +155,20 @@ function ProfileScreen({ setIsLoggedIn }) {
           "Content-Type": "multipart/form-data",
         },
       })
-      .then(() => {
+      .then((response) => {
         setMessage("Avatar uploaded successfully");
-        //window.location.reload();
+
+        setUserDetails({
+          ...userDetails,
+          avatar: response.data.avatar,
+        });
       })
       .catch((error) => {
         console.log(error.response);
-        setMessage("Upload Failed");
+
+        setMessage(
+          error.response?.data?.message || error.message || "Upload Failed",
+        );
       });
   }
 
