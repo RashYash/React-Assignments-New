@@ -53,7 +53,7 @@ function LoginScreen({ setIsLoggedIn }) {
 
   return (
     <div className="assignment13-login-box">
-      <h2 className="assignment13-title">Assignment 15 Login</h2>
+      <h2 className="assignment13-title">Assignment Login</h2>
 
       <input
         type="text"
@@ -92,12 +92,17 @@ function LoginScreen({ setIsLoggedIn }) {
 //profile
 function ProfileScreen({ setIsLoggedIn }) {
   const [userDetails, setUserDetails] = useState(null);
-
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [message, setMessage] = useState("");
+
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [passwordSuccess, setPasswordSuccess] = useState("");
 
   useEffect(() => {
     api
@@ -145,7 +150,7 @@ function ProfileScreen({ setIsLoggedIn }) {
 
   function uploadAvatar() {
     if (!selectedImage) {
-      setMessage("Please select an image first");
+      setMessage("Select image first");
       return;
     }
 
@@ -163,9 +168,62 @@ function ProfileScreen({ setIsLoggedIn }) {
         setMessage("Avatar uploaded successfully");
         //window.location.reload();
       })
+      .catch(() => setMessage("Upload Failed"));
+  }
+
+  function validatePassword() {
+    if (!currentPassword || !newPassword || !rePassword)
+      return "All fields are required";
+
+    if (newPassword !== rePassword) return "Passwords do not match";
+
+    if (newPassword.length < 8 || newPassword.length > 40)
+      return "Password must be 8-40 characters";
+
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[*/\-@#$]).+$/;
+
+    if (!regex.test(newPassword))
+      return "Must contain uppercase, lowercase, number & special character";
+
+    return "";
+  }
+
+  function changePassword() {
+    setPasswordError("");
+    setPasswordSuccess("");
+
+    const error = validatePassword();
+
+    if (error) {
+      setPasswordError(error);
+      return;
+    }
+
+    api
+      .put(
+        "/password",
+        {
+          old_password: currentPassword,
+          new_password: newPassword,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + getToken(),
+          },
+        },
+      )
+      .then(() => {
+        setPasswordSuccess("Password Changed Successfully");
+
+        setCurrentPassword("");
+        setNewPassword("");
+        setRePassword("");
+      })
       .catch((error) => {
         console.log(error.response);
-        setMessage("Upload Failed");
+        setPasswordError(
+          error.response?.data?.message || "Password Change Failed",
+        );
       });
   }
 
@@ -190,12 +248,7 @@ function ProfileScreen({ setIsLoggedIn }) {
   return (
     userDetails && (
       <div className="assignment13-profile-box">
-        <h3 className="assignment13-title">Profile Screen</h3>
-
-        <p className="assignment13-profile-text">Name: {userDetails.name}</p>
-        <p className="assignment13-profile-text">
-          Description: {userDetails.description}
-        </p>
+        <h3>Profile Screen</h3>
 
         <img
           src={userDetails.avatar}
@@ -204,18 +257,14 @@ function ProfileScreen({ setIsLoggedIn }) {
         />
 
         <input
-          type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Enter Name"
           className="assignment10-input"
         />
 
         <input
-          type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Enter Description"
           className="assignment10-input"
         />
 
@@ -227,10 +276,47 @@ function ProfileScreen({ setIsLoggedIn }) {
         <br />
 
         <input type="file" accept="image/*" onChange={handleFileChange} />
+
         <button onClick={uploadAvatar} className="assignment10-button">
           Upload Avatar
         </button>
+
         <p>{message}</p>
+
+        <hr />
+
+        <h3>Change Password</h3>
+
+        <input
+          type="password"
+          placeholder="Current Password"
+          value={currentPassword}
+          onChange={(e) => setCurrentPassword(e.target.value)}
+          className="assignment10-input"
+        />
+
+        <input
+          type="password"
+          placeholder="New Password"
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+          className="assignment10-input"
+        />
+
+        <input
+          type="password"
+          placeholder="Re-Enter Password"
+          value={rePassword}
+          onChange={(e) => setRePassword(e.target.value)}
+          className="assignment10-input"
+        />
+
+        <button onClick={changePassword} className="assignment10-button">
+          Change Password
+        </button>
+
+        <p className="assignment10-error">{passwordError}</p>
+        <p style={{ color: "green" }}>{passwordSuccess}</p>
 
         <br />
 
