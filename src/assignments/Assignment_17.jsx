@@ -1,58 +1,41 @@
 import { useState } from "react";
 import "./Assignment_17.css";
 
+function hexToRgb(hex) {
+  hex = hex.replace("#", "");
+
+  const r = parseInt(hex.substring(0, 2), 16);
+  const g = parseInt(hex.substring(2, 4), 16);
+  const b = parseInt(hex.substring(4, 6), 16);
+
+  return [r, g, b];
+}
+
+function rgbToHex(r, g, b) {
+  return (
+    "#" +
+    r.toString(16).padStart(2, "0") +
+    g.toString(16).padStart(2, "0") +
+    b.toString(16).padStart(2, "0")
+  );
+}
+
+function mixColors(c1, c2) {
+  const rgb1 = hexToRgb(c1);
+  const rgb2 = hexToRgb(c2);
+
+  let r = Math.min(rgb1[0] + rgb2[0], 255);
+  let g = Math.min(rgb1[1] + rgb2[1], 255);
+  let b = Math.min(rgb1[2] + rgb2[2], 255);
+
+  return rgbToHex(r, g, b);
+}
+
 export default function Assignment_17() {
   const [color1, setColor1] = useState("#ff0000");
   const [color2, setColor2] = useState("#0000ff");
-  const [mixedColor, setMixedColor] = useState("#ff00ff");
 
-  function hexToRgb(hex) {
-    hex = hex.replace("#", "");
-
-    const r = parseInt(hex.substring(0, 2), 16);
-    const g = parseInt(hex.substring(2, 4), 16);
-    const b = parseInt(hex.substring(4, 6), 16);
-
-    return [r, g, b];
-  }
-
-  function rgbToHex(r, g, b) {
-    return (
-      "#" +
-      r.toString(16).padStart(2, "0") +
-      g.toString(16).padStart(2, "0") +
-      b.toString(16).padStart(2, "0")
-    );
-  }
-
-  function mixColors(c1, c2) {
-    const rgb1 = hexToRgb(c1);
-    const rgb2 = hexToRgb(c2);
-
-    let r = rgb1[0] + rgb2[0];
-    let g = rgb1[1] + rgb2[1];
-    let b = rgb1[2] + rgb2[2];
-
-    r = Math.min(r, 255);
-    g = Math.min(g, 255);
-    b = Math.min(b, 255);
-
-    const mixed = rgbToHex(r, g, b);
-
-    setMixedColor(mixed);
-  }
-
-  function handleColor1(e) {
-    const newColor = e.target.value;
-    setColor1(newColor);
-    mixColors(newColor, color2);
-  }
-
-  function handleColor2(e) {
-    const newColor = e.target.value;
-    setColor2(newColor);
-    mixColors(color1, newColor);
-  }
+  const mixedColor = mixColors(color1, color2);
 
   return (
     <div className="assignment17-container">
@@ -61,12 +44,20 @@ export default function Assignment_17() {
       <div className="color-inputs">
         <div>
           <label>Color 1</label>
-          <input type="color" value={color1} onChange={handleColor1} />
+          <input
+            type="color"
+            value={color1}
+            onChange={(e) => setColor1(e.target.value)}
+          />
         </div>
 
         <div>
           <label>Color 2</label>
-          <input type="color" value={color2} onChange={handleColor2} />
+          <input
+            type="color"
+            value={color2}
+            onChange={(e) => setColor2(e.target.value)}
+          />
         </div>
       </div>
 
