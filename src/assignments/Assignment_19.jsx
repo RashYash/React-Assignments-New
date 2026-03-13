@@ -8,17 +8,13 @@ export default function Assignment_19() {
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
 
-  useEffect(() => {
-    axios.get("https://apis.dnjs.lk/objects/quiz.php").then((res) => {
-      setQuestions(res.data);
-    });
-  }, []);
+  const question = questions[currentQuestion];
 
   function handleAnswer(selectedIndex) {
-    const correctIndex = questions[currentQuestion].correct;
+    const correctIndex = question.correct;
 
     if (selectedIndex === correctIndex) {
-      setScore(score + 1);
+      setScore((prev) => prev + 1);
     }
 
     const nextQuestion = currentQuestion + 1;
@@ -29,6 +25,12 @@ export default function Assignment_19() {
       setFinished(true);
     }
   }
+
+  useEffect(() => {
+    axios.get("https://apis.dnjs.lk/objects/quiz.php").then((res) => {
+      setQuestions(res.data);
+    });
+  }, []);
 
   if (questions.length === 0) {
     return <h2>Loading Quiz...</h2>;
@@ -47,12 +49,10 @@ export default function Assignment_19() {
 
   return (
     <div className="assignment19-container">
-      <h2 className="assignment19-question">
-        {questions[currentQuestion].question}
-      </h2>
+      <h2 className="assignment19-question">{question.question}</h2>
 
       <div className="assignment19-options">
-        {questions[currentQuestion].answers.map((answer, index) => (
+        {question.answers.map((answer, index) => (
           <button
             key={index}
             className="assignment19-btn"

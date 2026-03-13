@@ -1,0 +1,40 @@
+.assignment20-review-box {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background: #f9f9f9;
+}
+.assignment20-review-question {
+  margin-bottom: 20px;
+  font-size: 22px;
+  text-align: center;
+}
+.assignment20-review-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.assignment20-answer {
+  padding: 10px;
+  font-size: 18px;
+  border-bottom: 1px solid #ddd;
+}
+.assignment20-navigation {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.assignment20-nav-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.assignment20-nav-btn:hover {
+  background: #555;
+}

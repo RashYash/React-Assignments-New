@@ -6,6 +6,24 @@ export default function Assignment_18() {
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
+  function handleColorClick(clickedColor) {
+    if (gameOver) return;
+
+    const lastColor = colors[colors.length - 1];
+
+    if (lastColor === clickedColor) {
+      setColors((prevColors) => {
+        const newColors = [...prevColors];
+        newColors.pop();
+        return newColors;
+      });
+
+      setScore((prev) => prev + 1);
+    } else {
+      setGameOver(true);
+    }
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
       setColors((prevColors) => {
@@ -27,24 +45,6 @@ export default function Assignment_18() {
 
     return () => clearInterval(interval);
   }, [gameOver]);
-
-  function handleColorClick(clickedColor) {
-    if (gameOver) return;
-
-    const lastColor = colors[colors.length - 1];
-
-    if (lastColor === clickedColor) {
-      setColors((prevColors) => {
-        const newColors = [...prevColors];
-        newColors.pop();
-        return newColors;
-      });
-
-      setScore((prev) => prev + 1);
-    } else {
-      setGameOver(true);
-    }
-  }
 
   return (
     <div className="assignment18-container">
