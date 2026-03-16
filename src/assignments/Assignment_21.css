@@ -1,0 +1,54 @@
+.assignment21-container {
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.assignment21-title {
+  margin-bottom: 20px;
+}
+
+.assignment21-upload {
+  margin-bottom: 20px;
+}
+
+.assignment21-upload-btn {
+  background: #2c7be5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.assignment21-upload-btn:hover {
+  background: #1a5fd1;
+}
+
+.assignment21-canvas-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.assignment21-canvas {
+  border: 2px solid #333;
+  max-width: 100%;
+  cursor: crosshair;
+}
+
+.assignment21-result {
+  margin-top: 25px;
+  font-size: 18px;
+}
+
+.assignment21-color-preview {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  border: 2px solid black;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}

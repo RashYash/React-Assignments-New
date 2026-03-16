@@ -25,6 +25,8 @@ import Assignment_17 from "./assignments/Assignment_17.jsx";
 import Assignment_18 from "./assignments/Assignment_18.jsx";
 import Assignment_19 from "./assignments/Assignment_19.jsx";
 import Assignment_20 from "./assignments/Assignment_20.jsx";
+import Assignment_21 from "./assignments/Assignment_21.jsx";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
 
   <HashRouter>
@@ -53,6 +55,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-18" element={<Assignment_18 />} />
       <Route path="/ASG-19" element={<Assignment_19 />} />
       <Route path="/ASG-20" element={<Assignment_20 />} />
+      <Route path="/ASG-21" element={<Assignment_21 />} />
 
     </Routes>
 
