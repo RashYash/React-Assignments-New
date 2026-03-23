@@ -27,6 +27,8 @@ import Assignment_19 from "./assignments/Assignment_19.jsx";
 import Assignment_20 from "./assignments/Assignment_20.jsx";
 import Assignment_21 from "./assignments/Assignment_21.jsx";
 import Assignment_22 from "./assignments/Assignment_22.jsx";
+import CursorSimple from "./assignments/cursorSimple.jsx";
+import CursorTrail from "./assignments/CursorTrail.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 
@@ -58,6 +60,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-20" element={<Assignment_20 />} />
       <Route path="/ASG-21" element={<Assignment_21 />} />
       <Route path="/ASG-22" element={<Assignment_22 />} />
+      <Route path="/ASG-23" element={<CursorSimple />} />
+      <Route path="/ASG-24" element={<CursorTrail />} />
 
     </Routes>
 
