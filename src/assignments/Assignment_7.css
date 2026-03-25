@@ -1,13 +1,15 @@
-div {
+.assignment7-container {
   padding: 20px;
   font-family: Arial, sans-serif;
 }
 
-ul {
+.assignment7-title {
   margin-top: 20px;
+  color: white;
 }
 
-li {
+.assignment7-list {
   padding: 5px 0;
   list-style-type: disc;
+  color: white;
 }

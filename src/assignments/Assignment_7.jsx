@@ -17,9 +17,9 @@ export default function Assignment_7() {
   }, []);
 
   return (
-    <div>
-      <h2>Colors List</h2>
-      <ul>
+    <div className="assignment7-container">
+      <h2 className="assignment7-title">Colors List</h2>
+      <ul className="assignment7-list">
         {colors.map((color, index) => (
           <li key={index}>
             {color.name} - {color.code}
