@@ -31,6 +31,8 @@ import CursorSimple from "./assignments/CursorSimple.jsx";
 import CursorTrail from "./assignments/CursorTrail.jsx";
 import FlipMatchGame from "./assignments/FlipMatchGame.jsx";
 import PixelateFilterApp from "./assignments/PixelateFilterApp.jsx";
+import TextFileDownloader from "./assignments/TextFileDownloader.jsx";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
     <Routes>
@@ -62,6 +64,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-24" element={<CursorTrail />} />
       <Route path="/ASG-25" element={<FlipMatchGame />} />
       <Route path="/ASG-26" element={<PixelateFilterApp />} />
+      <Route path="/ASG-27" element={<TextFileDownloader />} />
     </Routes>
   </HashRouter>,
 );

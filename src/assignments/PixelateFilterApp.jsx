@@ -89,10 +89,20 @@ export default function PixelateFilterApp() {
   const handleDownload = () => {
     const outputCanvas = outputCanvasRef.current;
 
-    const link = document.createElement("a");
-    link.download = "pixelated-image.png";
-    link.href = outputCanvas.toDataURL();
-    link.click();
+    outputCanvas.toBlob((blob) => {
+      const url = URL.createObjectURL(blob);
+
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "pixelated-image.png";
+      anchor.style.display = "none";
+
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+
+      setTimeout(() => URL.revokeObjectURL(url), 50);
+    });
   };
 
   return (
