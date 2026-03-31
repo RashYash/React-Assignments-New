@@ -6,26 +6,24 @@ export default function TextFileDownloader() {
   const [content, setContent] = useState("");
   const [isDownloaded, setIsDownloaded] = useState(false);
 
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-    setIsDownloaded(false);
-  };
-
-  const handleContentChange = (e) => {
-    setContent(e.target.value);
-    setIsDownloaded(false);
-  };
-
   const handleDownload = () => {
     if (!title && !content) return;
 
     const textData = `Title: ${title}\n\n${content}`;
     const blob = new Blob([textData], { type: "text/plain" });
+
+    const blobUrl = URL.createObjectURL(blob); 
     const link = document.createElement("a");
 
+    link.href = blobUrl;
     link.download = `${title || "document"}.txt`;
-    link.href = URL.createObjectURL(blob);
+
+    document.body.appendChild(link); 
     link.click();
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(blobUrl); 
+
     setIsDownloaded(true);
   };
 
@@ -46,6 +44,10 @@ export default function TextFileDownloader() {
     };
   }, [title, content, isDownloaded]);
 
+  useEffect(() => {
+    setIsDownloaded(false);
+  }, [title, content]);
+
   return (
     <div className="tfd-app-container">
       <div className="tfd-box-container">
@@ -55,14 +57,14 @@ export default function TextFileDownloader() {
           type="text"
           placeholder="Enter title"
           value={title}
-          onChange={handleTitleChange}
+          onChange={(e) => setTitle(e.target.value)}
           className="tfd-input-field"
         />
 
         <textarea
           placeholder="Enter content"
           value={content}
-          onChange={handleContentChange}
+          onChange={(e) => setContent(e.target.value)}
           className="tfd-textarea-field"
         />
 
