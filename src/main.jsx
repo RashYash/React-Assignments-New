@@ -33,6 +33,8 @@ import FlipMatchGame from "./assignments/FlipMatchGame.jsx";
 import PixelateFilterApp from "./assignments/PixelateFilterApp.jsx";
 import TextFileDownloader from "./assignments/TextFileDownloader.jsx";
 import CustomContextMenu from "./assignments/CustomContextMenu.jsx";
+import FileDropZoneApp from "./assignments/FileDropZoneApp.jsx";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
     <Routes>
@@ -66,6 +68,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-26" element={<PixelateFilterApp />} />
       <Route path="/ASG-27" element={<TextFileDownloader />} />
       <Route path="/ASG-28" element={<CustomContextMenu />} />
+      <Route path="/ASG-29" element={<FileDropZoneApp />} />
     </Routes>
   </HashRouter>,
 );
