@@ -30,7 +30,6 @@ export default function BillPrintApp() {
 
     document.body.appendChild(iframe);
   };
-
   return (
     <div className="bill-form-container">
       <h1 className="bill-title">Invoice Bill Generator</h1>
