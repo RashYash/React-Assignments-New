@@ -26,7 +26,7 @@ export default function BillPrintApp() {
       }, 100);
     });
 
-    iframe.src = `${process.env.PUBLIC_URL}/bill-template.html`;
+    iframe.src = `${import.meta.env.BASE_URL}bill-template.html`;
 
     document.body.appendChild(iframe);
   };
