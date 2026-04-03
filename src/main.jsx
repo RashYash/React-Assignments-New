@@ -34,6 +34,7 @@ import PixelateFilterApp from "./assignments/PixelateFilterApp.jsx";
 import TextFileDownloader from "./assignments/TextFileDownloader.jsx";
 import CustomContextMenu from "./assignments/CustomContextMenu.jsx";
 import FileDropZoneApp from "./assignments/FileDropZoneApp.jsx";
+import BillPrintApp from "./assignments/BillPrintApp.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
@@ -69,6 +70,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-27" element={<TextFileDownloader />} />
       <Route path="/ASG-28" element={<CustomContextMenu />} />
       <Route path="/ASG-29" element={<FileDropZoneApp />} />
+      <Route path="/ASG-30" element={<BillPrintApp />} />
     </Routes>
   </HashRouter>,
 );

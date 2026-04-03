@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice Bill</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: #f4f4f4;
+      }
+
+      .invoice-wrapper {
+        max-width: 500px;
+        margin: auto;
+        border: 2px solid black;
+        background: white;
+        border-radius: 10px;
+      }
+
+      .invoice-header {
+        text-align: center;
+        border-bottom: 1px solid black;
+        padding: 10px;
+        background: rgb(0, 0, 0);
+        color: white;
+      }
+
+      .invoice-header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      .invoice-body {
+        padding: 15px;
+      }
+
+      .invoice-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .invoice-total {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        border-top: 1px solid black;
+        padding-top: 10px;
+        margin-top: 10px;
+      }
+
+      .invoice-footer {
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="invoice-wrapper">
+      <div class="invoice-header">
+        <h1>Customer Invoice</h1>
+      </div>
+
+      <div class="invoice-body">
+        <div class="invoice-row">
+          <span>Item Name</span>
+          <span id="itemName">ITEM</span>
+        </div>
+
+        <div class="invoice-row">
+          <span>Unit Price</span>
+          <span id="itemPrice">0</span>
+        </div>
+
+        <div class="invoice-row">
+          <span>Quantity</span>
+          <span id="itemQty">0</span>
+        </div>
+
+        <div class="invoice-total">
+          <span>Total Amount</span>
+          <span id="itemTotal">0</span>
+        </div>
+      </div>
+
+      <div class="invoice-footer">
+        <strong
+          >Thank you for your purchase.<br />
+          Glad to see you again!</strong
+        ><br />
+      </div>
+    </div>
+  </body>
+</html>
