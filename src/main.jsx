@@ -36,6 +36,7 @@ import CustomContextMenu from "./assignments/CustomContextMenu.jsx";
 import FileDropZoneApp from "./assignments/FileDropZoneApp.jsx";
 import BillPrintApp from "./assignments/BillPrintApp.jsx";
 import ThreeColorMixerApp from "./assignments/ThreeColorMixerApp.jsx";
+import NotificationApp from "./assignments/NotificationApp.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
@@ -73,6 +74,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-29" element={<FileDropZoneApp />} />
       <Route path="/ASG-30" element={<BillPrintApp />} />
       <Route path="/ASG-31" element={<ThreeColorMixerApp/>} />
+      <Route path="/ASG-32" element={<NotificationApp/>} />
     </Routes>
   </HashRouter>,
 );
