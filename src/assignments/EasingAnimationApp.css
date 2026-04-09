@@ -1,0 +1,43 @@
+.ea-wrapper {
+  width: 100%;
+  min-height: 50vh;
+  padding: 40px;
+  text-align: center;
+  background: #f4f6f8;
+}
+
+.ea-title {
+  margin-bottom: 20px;
+}
+
+.ea-dropdown {
+  padding: 10px;
+  margin-right: 15px;
+  border-radius: 8px;
+}
+
+.ea-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ea-track {
+  margin-top: 60px;
+  width: 500px;
+  height: 60px;
+  border: 2px solid #ccc;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.ea-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  margin-top: 8px;
+  margin-left: 0px;
+}
