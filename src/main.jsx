@@ -38,6 +38,7 @@ import BillPrintApp from "./assignments/BillPrintApp.jsx";
 import ThreeColorMixerApp from "./assignments/ThreeColorMixerApp.jsx";
 import NotificationApp from "./assignments/NotificationApp.jsx";
 import EasingAnimationApp from "./assignments/EasingAnimationApp.jsx";
+import LinearGradientAnimationApp from "./assignments/LinearGradientAnimationApp.jsx"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
@@ -77,6 +78,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-31" element={<ThreeColorMixerApp/>} />
       <Route path="/ASG-32" element={<NotificationApp/>} />
       <Route path="/ASG-33" element={<EasingAnimationApp/>} />
+      <Route path="/ASG-34" element={<LinearGradientAnimationApp/>} />
     </Routes>
   </HashRouter>,
 );

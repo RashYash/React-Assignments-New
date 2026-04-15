@@ -1,0 +1,30 @@
+.lga-wrapper {
+  min-height: 85vh;
+  min-width: 35vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background: white;
+  border-radius: 30px;
+}
+
+.lga-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.lga-dropdown {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.lga-box {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  background-image: linear-gradient(red, blue);
+}
