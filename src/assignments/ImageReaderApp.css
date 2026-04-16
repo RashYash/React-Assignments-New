@@ -1,0 +1,41 @@
+.ocr-wrapper {
+  min-height: 80vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: #f4f6f8;
+  border-radius: 30px;
+}
+
+.ocr-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.ocr-input {
+  padding: 10px;
+}
+
+.ocr-preview {
+  width: 300px;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.ocr-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.ocr-output {
+  width: 500px;
+  height: 200px;
+  padding: 15px;
+  border-radius: 12px;
+  resize: none;
+}
