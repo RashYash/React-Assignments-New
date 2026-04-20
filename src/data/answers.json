@@ -1,0 +1,8 @@
+[
+  { "questionId": 1, "correctAnswer": "B" },
+  { "questionId": 2, "correctAnswer": "A" },
+  { "questionId": 3, "correctAnswer": "D" },
+  { "questionId": 4, "correctAnswer": "A" },
+  { "questionId": 5, "correctAnswer": "C" },
+  { "questionId": 6, "correctAnswer": "B" }
+]
