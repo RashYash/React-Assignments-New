@@ -1,0 +1,70 @@
+.omr-container {
+  min-height: 30vh;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background: #f4f6f8;
+  border-radius: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.omr-card {
+  width: 420px;
+  padding: 25px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.omr-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.omr-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.omr-button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #4caf50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.omr-button:hover {
+  opacity: 0.9;
+}
+
+.omr-loading {
+  font-size: 14px;
+  color: #555;
+}
+
+.omr-result {
+  width: 380px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #5bb0bb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: left;
+}
+
+.omr-result p {
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+.omr-result p:last-child {
+  color: #000000;
+}

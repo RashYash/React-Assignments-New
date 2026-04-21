@@ -41,6 +41,7 @@ import EasingAnimationApp from "./assignments/EasingAnimationApp.jsx";
 import LinearGradientAnimationApp from "./assignments/LinearGradientAnimationApp.jsx"
 import ImageReaderApp from "./assignments/ImageReaderApp.jsx"
 import OMRApp from "./assignments/OMRApp.jsx"
+import NEWOMRApp from "./assignments/NEWOMRApp.jsx"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
@@ -83,7 +84,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-34" element={<LinearGradientAnimationApp/>} />
       <Route path="/ASG-35" element={<ImageReaderApp/>} />
       <Route path="/ASG-36" element={<OMRApp/>} />
-      
+      <Route path="/ASG-37" element={<NEWOMRApp/>} />
     </Routes>
   </HashRouter>,
 );
