@@ -43,6 +43,7 @@ import ImageReaderApp from "./assignments/ImageReaderApp.jsx"
 import OMRApp from "./assignments/OMRApp.jsx"
 import NEWOMRApp from "./assignments/NEWOMRApp.jsx"
 import FaceDetectionApp from "./assignments/FaceDetectionApp.jsx"
+import FaceVideoDetection from "./assignments/FaceVideoDetection.jsx"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
@@ -87,6 +88,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-36" element={<OMRApp/>} />
       <Route path="/ASG-37" element={<NEWOMRApp/>} />
       <Route path="/ASG-38" element={<FaceDetectionApp/>} />
+      <Route path="/ASG-39" element={<FaceVideoDetection/>} />
+      
     </Routes>
   </HashRouter>,
 );
