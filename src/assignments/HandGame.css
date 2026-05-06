@@ -1,0 +1,89 @@
+.hg-container {
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  min-height: 100vh;
+}
+.hg-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 650px;
+  margin: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.hg-card:hover {
+  transform: translateY(-5px);
+}
+
+.hg-title {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #4f46e5;
+}
+
+.hg-question {
+  font-size: 36px;
+  margin: 20px 0;
+  color: #222;
+  font-weight: bold;
+}
+
+.hg-info {
+  font-size: 18px;
+  margin: 8px 0;
+  color: #555;
+}
+
+.hg-timer {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff4d4f;
+  margin-top: 10px;
+}
+
+.hg-video-box {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.hg-video {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+}
+
+.hg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.hg-score {
+  font-size: 26px;
+  margin-top: 20px;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.hg-gameover {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.hg-gameover h1 {
+  font-size: 40px;
+  color: #ef4444;
+}
+
+.hg-gameover h2 {
+  margin-top: 10px;
+  color: #333;
+}

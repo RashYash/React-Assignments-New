@@ -45,6 +45,15 @@ import NEWOMRApp from "./assignments/NEWOMRApp.jsx"
 import FaceDetectionApp from "./assignments/FaceDetectionApp.jsx"
 import FaceVideoDetection from "./assignments/FaceVideoDetection.jsx"
 import FaceImageGlasses from "./assignments/FaceImageGlasses.jsx"
+
+//import Step1_Webcam from "./assignments/Step1_Webcam.jsx"
+//import Step2_Model from "./assignments/Step2_Model.jsx"
+//import Step3_Detect from "./assignments/Step3_Detect.jsx"
+//import Step4_Draw from "./assignments/Step4_Draw.jsx"
+
+import HandGame from "./assignments/HandGame.jsx"
+
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <HashRouter>
     <Routes>
@@ -90,6 +99,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/ASG-38" element={<FaceDetectionApp/>} />
       <Route path="/ASG-39" element={<FaceVideoDetection/>} />
       <Route path="/ASG-40" element={<FaceImageGlasses/>} />
+
+
+      <Route path="/ASG-41" element={<HandGame/>} />
+      
+
     </Routes>
   </HashRouter>,
 );
