@@ -1,0 +1,22 @@
+[
+  {
+    "q": "What is the capital of France?",
+    "options": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correct": 3
+  },
+  {
+    "q": "Which number is even?",
+    "options": ["3", "5", "8", "7"],
+    "correct": 3
+  },
+  {
+    "q": "Which is a programming language?",
+    "options": ["HTML", "CSS", "Python", "Photoshop"],
+    "correct": 3
+  },
+  {
+    "q": "Which is a fruit?",
+    "options": ["Carrot", "Apple", "Potato", "Onion"],
+    "correct": 2
+  }
+]

@@ -52,6 +52,7 @@ import FaceImageGlasses from "./assignments/FaceImageGlasses.jsx"
 //import Step4_Draw from "./assignments/Step4_Draw.jsx"
 
 import HandGame from "./assignments/HandGame.jsx"
+import NewHandGame from "./assignments/NewHandGame.jsx"
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -102,6 +103,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 
       <Route path="/ASG-41" element={<HandGame/>} />
+      <Route path="/ASG-42" element={<NewHandGame/>} />
       
 
     </Routes>

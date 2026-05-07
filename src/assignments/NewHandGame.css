@@ -1,0 +1,142 @@
+.hg1-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.hg1-card {
+  width: 100%;
+  max-width: 750px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border-radius: 28px;
+  padding: 40px;
+  color: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.6s ease;
+}
+
+.hg1-title {
+  font-size: 38px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+  background: linear-gradient(to right, #38bdf8, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hg1-question {
+  font-size: 30px;
+  text-align: center;
+  margin: 30px 0;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.hg1-info {
+  text-align: center;
+  font-size: 18px;
+  color: #cbd5e1;
+}
+
+.hg1-options {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.hg1-option {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 18px;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.hg1-option:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hg1-option.active {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: 2px solid #bbf7d0;
+  color: white;
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
+}
+
+.hg1-timer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #facc15;
+}
+
+.hg1-score {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.hg1-floating-video {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 320px;
+  height: 240px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: black;
+  border: 3px solid #38bdf8;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  animation: floatUp 0.6s ease;
+}
+
+.hg1-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hg1-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hg1-gameover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hg1-gameover h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+.hg1-gameover h2 {
+  font-size: 36px;
+  color: #facc15;
+}
